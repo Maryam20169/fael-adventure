@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>رحلة إلى عالم الفاعل</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap');
+:root{--navy:#20345f;--purple:#7657c8;--pink:#ff7fa8;--gold:#ffc857;--mint:#53c9ad;--ink:#263454;--muted:#71809d;--paper:#fff;--bg:#f5f3ff}
+*{box-sizing:border-box}body{margin:0;font-family:'Tajawal',Arial,sans-serif;color:var(--ink);background:radial-gradient(circle at 10% 10%,#ffe5ef 0,transparent 25%),radial-gradient(circle at 90% 15%,#e0f8f2 0,transparent 25%),linear-gradient(135deg,#f7f5ff,#eef6ff);min-height:100vh}
+button{font:inherit;cursor:pointer;border:0}.wrap{max-width:960px;margin:auto;padding:22px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}.brand{font-weight:900;color:var(--navy);font-size:18px}.stats{display:flex;gap:8px;flex-wrap:wrap}.pill{background:#fff;border:1px solid #ebe8fa;border-radius:30px;padding:9px 14px;font-weight:800;box-shadow:0 5px 15px #394a7610}
+.hero{background:linear-gradient(120deg,#293b70,#7557c9);color:white;border-radius:28px;padding:30px;position:relative;overflow:hidden;box-shadow:0 18px 40px #4b438b30}.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;background:#ffffff12}.hero:before{width:220px;height:220px;left:-60px;top:-90px}.hero:after{width:150px;height:150px;right:35%;bottom:-110px}.hero-inner{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:center;gap:20px}.eyebrow{color:#ffe08b;font-weight:800}.hero h1{font-size:clamp(30px,5vw,48px);margin:8px 0}.hero p{font-size:18px;line-height:1.7;margin:0;max-width:590px;color:#f0edff}.mascot{font-size:86px;filter:drop-shadow(0 8px 7px #17234b55)}
+.card{background:#fff;border:1px solid #eceaf8;border-radius:24px;padding:24px;margin-top:18px;box-shadow:0 12px 28px #35436b0d}.section-title{display:flex;align-items:center;gap:10px;font-size:23px;font-weight:900;color:var(--navy);margin:0 0 16px}.section-title span{background:#f0ecff;border-radius:13px;padding:8px}
+.lesson{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}.definition{background:#f6f3ff;border-radius:18px;padding:18px;line-height:1.8;font-size:18px}.example{background:#effbf7;border-radius:18px;padding:18px;text-align:center}.sentence{font-size:25px;font-weight:900;margin:12px 0}.subject{color:#159c7c;text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:6px}.hint{color:var(--muted);font-size:14px}
+.stages{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.stage{padding:17px;border:2px solid #eeeaf9;border-radius:18px;background:#fff;text-align:center;transition:.2s}.stage.active{border-color:var(--purple);background:#f7f4ff;transform:translateY(-3px)}.stage.done{border-color:#b5ebdc;background:#f1fcf8}.stage .emoji{font-size:30px}.stage strong{display:block;margin:7px 0;color:var(--navy)}.stage small{color:var(--muted)}
+.primary{background:linear-gradient(120deg,var(--purple),#9675e8);color:#fff;border-radius:15px;padding:13px 22px;font-weight:900;box-shadow:0 8px 16px #7657c833}.secondary{background:#f0edff;color:var(--purple);border-radius:15px;padding:12px 18px;font-weight:900}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.progress{height:10px;background:#eeeaf7;border-radius:20px;overflow:hidden;margin:12px 0}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--mint),#7fdbbd);transition:.3s}
+.question{font-size:22px;font-weight:900;line-height:1.6;margin:12px 0 18px}.answers{display:grid;grid-template-columns:1fr 1fr;gap:12px}.answer{padding:16px;border:2px solid #e9e7f3;background:#fff;border-radius:16px;font-size:18px;font-weight:800;color:var(--ink);text-align:center}.answer:hover{border-color:#a18be5;background:#faf8ff}.answer.correct{border-color:var(--mint);background:#effbf7}.answer.wrong{border-color:var(--pink);background:#fff2f6}.feedback{margin-top:14px;padding:14px;border-radius:14px;font-weight:800;display:none}.feedback.show{display:block}.feedback.good{background:#eafaf4;color:#137d65}.feedback.bad{background:#fff0f4;color:#b44769}
+.achievements{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.badge{border-radius:16px;background:#f7f5fc;padding:14px;text-align:center;border:1px solid #eeebf6;opacity:.45;filter:grayscale(1)}.badge.unlocked{opacity:1;filter:none;background:#fff9e9;border-color:#ffe0a0}.badge .emoji{font-size:30px;display:block}.badge b{display:block;margin-top:6px}.badge small{color:var(--muted)}
+.certificate{display:none;text-align:center;border:3px dashed #d6c5ff;background:linear-gradient(135deg,#fff,#f8f4ff);border-radius:22px;padding:26px}.certificate.show{display:block}.certificate h2{color:var(--purple);font-size:30px}.certificate .seal{font-size:56px}
+footer{text-align:center;color:#8993a9;padding:22px;font-size:13px}
+@media(max-width:650px){.wrap{padding:13px}.hero{padding:22px}.hero-inner{align-items:flex-start}.mascot{font-size:58px}.lesson{grid-template-columns:1fr}.stages{grid-template-columns:1fr}.answers{grid-template-columns:1fr}.achievements{grid-template-columns:1fr 1fr}.top{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">✨ أكاديمية النحو الصغير</div>
+    <div class="stats"><div class="pill">⭐ النقاط: <span id="points">0</span></div><div class="pill">🏅 الأوسمة: <span id="medals">0</span>/3</div></div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow">مغامرة تعليمية تفاعلية</div>
+        <h1>رحلة إلى عالم الفاعل</h1>
+        <p>هل أنت مستعد لاكتشاف من قام بالفعل؟ تعلّم القاعدة، واجتز التحديات، واجمع الأوسمة!</p>
+      </div>
+      <div class="mascot" aria-hidden="true">🧭📚</div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 class="section-title"><span>💡</span> تذكّر القاعدة</h2>
+    <div class="lesson">
+      <div class="definition"><b>الفاعل:</b> اسمٌ مرفوعٌ يدلّ على من قام بالفعل.<br>نسأل عنه غالبًا بـ <b>مَن؟</b> بعد الفعل.<br><br><b>مثال:</b> قرأَ الطالبُ القصةَ.<br>مَن قرأ؟ <b>الطالبُ</b>؛ إذن الطالبُ هو الفاعل.</div>
+      <div class="example"><div class="hint">لاحظ الفاعل في الجملة</div><div class="sentence">غرّدَ <span class="subject">العصفورُ</span></div><div>مَن غرّد؟ العصفورُ 🐦</div><div class="hint">الفاعل مرفوع، وعلامة رفعه الضمة هنا.</div></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2 class="section-title"><span>🗺️</span> خريطة المراحل</h2>
+    <div class="stages">
+      <div class="stage active" id="stage0"><div class="emoji">🔎</div><strong>المرحلة ١: اكتشف</strong><small>تعرّف الفاعل</small></div>
+      <div class="stage" id="stage1"><div class="emoji">🧩</div><strong>المرحلة ٢: اختر</strong><small>حدّد الفاعل الصحيح</small></div>
+      <div class="stage" id="stage2"><div class="emoji">🚀</div><strong>المرحلة ٣: تحدَّ نفسك</strong><small>أسئلة متنوعة</small></div>
+    </div>
+  </section>
+
+  <section class="card" id="game">
+    <h2 class="section-title"><span>🎯</span> ساحة التحدّي</h2>
+    <div class="hint" id="stageLabel">المرحلة ١ من ٣</div>
+    <div class="progress"><div class="bar" id="bar"></div></div>
+    <div class="question" id="question">في جملة «رسمتْ سارةُ زهرةً»، مَن التي رسمت؟</div>
+    <div class="answers" id="answers"></div>
+    <div class="feedback" id="feedback" role="status"></div>
+    <div class="actions"><button class="primary" id="next" style="display:none" onclick="nextQuestion()">السؤال التالي ←</button><button class="secondary" onclick="restart()">إعادة اللعبة ↻</button></div>
+  </section>
+
+  <section class="card">
+    <h2 class="section-title"><span>🏆</span> إنجازاتي</h2>
+    <div class="achievements">
+      <div class="badge" id="badge1"><span class="emoji">🔍</span><b>مستكشف الفاعل</b><small>أكمل المرحلة الأولى</small></div>
+      <div class="badge" id="badge2"><span class="emoji">🧠</span><b>خبير الجمل</b><small>أكمل المرحلة الثانية</small></div>
+      <div class="badge" id="badge3"><span class="emoji">🌟</span><b>بطل النحو</b><small>أكمل جميع المراحل</small></div>
+    </div>
+  </section>
+
+  <section class="card certificate" id="certificate">
+    <div class="seal">🏅</div>
+    <h2>شهادة إنجاز</h2>
+    <p style="font-size:20px">تهانينا! لقد أتممت رحلة إلى عالم الفاعل بنجاح.</p>
+    <p>مجموع نقاطك: <b id="finalPoints">0</b> ⭐</p>
+    <p>أنت الآن بطل من أبطال النحو!</p>
+    <button class="primary" onclick="window.print()">طباعة الشهادة 🖨️</button>
+  </section>
+  <footer>تعلّم، فكّر، أجب، وواصل التقدّم 🌈</footer>
+</div>
+<script>
+const stages = [
+[
+{q:'في جملة «رسمتْ سارةُ زهرةً»، مَن التي رسمت؟',a:['سارةُ','زهرةً','رسمتْ'],c:0,why:'سارةُ هي التي قامت بالرسم؛ لذلك فهي الفاعل.'},
+{q:'اختر الفاعل في الجملة: «طارَتِ الفراشةُ».',a:['طارَتْ','الفراشةُ','لا يوجد فاعل'],c:1,why:'الفراشةُ هي التي قامت بالطيران.'}
+],
+[
+{q:'ما الفاعل في جملة «زرعَ الفلاحُ الشجرةَ»؟',a:['زرعَ','الفلاحُ','الشجرةَ'],c:1,why:'الفلاحُ هو الذي زرع؛ فهو الفاعل.'},
+{q:'أكمل بفاعل مناسب: «_____ يشرحُ الدرسَ».',a:['المعلمُ','الدرسَ','يشرحُ'],c:0,why:'المعلمُ هو الذي يشرح الدرس.'}
+],
+[
+{q:'أي جملة فاعلها هو «اللاعبون»؟',a:['شجّعَ الجمهورُ اللاعبينَ.','فازَ اللاعبونَ بالمباراة.','شاهدَ اللاعبونَ المباراةَ.'],c:1,why:'في الجملة الثانية اللاعبون هم الذين فازوا، فهم الفاعل.'},
+{q:'ما علامة رفع الفاعل «الطالبُ» في جملة «اجتهدَ الطالبُ»؟',a:['الفتحة','الكسرة','الضمة'],c:2,why:'الطالبُ مفرد، وعلامة رفعه الضمة الظاهرة.'},
+{q:'حدّد الفاعل في الجملة: «تفتّحتِ الأزهارُ صباحًا».',a:['صباحًا','تفتّحتْ','الأزهارُ'],c:2,why:'الأزهارُ هي التي تفتّحت؛ فهي الفاعل.'}
+]
+];
+let stage=0,index=0,points=0,answered=false,completed=[false,false,false];
+const $=id=>document.getElementById(id);
+function render(){
+ const item=stages[stage][index];answered=false;
+ $('stageLabel').textContent=`المرحلة ${stage+1} من ٣ — السؤال ${index+1} من ${stages[stage].length}`;
+ $('bar').style.width=`${(index/stages[stage].length)*100}%`;
+ $('question').textContent=item.q;$('answers').innerHTML='';
+ $('feedback').className='feedback';$('feedback').textContent='';$('next').style.display='none';
+ item.a.forEach((ans,i)=>{const b=document.createElement('button');b.className='answer';b.textContent=ans;b.onclick=()=>choose(i,b);$('answers').appendChild(b)});
+ document.querySelectorAll('.stage').forEach((el,i)=>el.classList.toggle('active',i===stage));
+}
+function choose(i,btn){
+ if(answered)return;answered=true;const item=stages[stage][index];const buttons=[...document.querySelectorAll('.answer')];
+ buttons.forEach((b,j)=>{b.disabled=true;if(j===item.c)b.classList.add('correct')});
+ const fb=$('feedback');
+ if(i===item.c){points+=10;$('points').textContent=points;fb.textContent='أحسنت! إجابة صحيحة ⭐ '+item.why;fb.className='feedback show good'}
+ else{btn.classList.add('wrong');fb.textContent='محاولة جيدة! الإجابة الصحيحة ملوّنة بالأخضر. '+item.why;fb.className='feedback show bad'}
+ $('next').style.display='inline-block';$('next').textContent=(index===stages[stage].length-1?'إنهاء المرحلة ✓':'السؤال التالي ←');
+}
+function nextQuestion(){
+ if(!answered)return;
+ if(index<stages[stage].length-1){index++;render();return}
+ completed[stage]=true;$(`stage${stage}`).classList.add('done');
+ if(stage===0){$('badge1').classList.add('unlocked')}
+ if(stage===1){$('badge2').classList.add('unlocked')}
+ $('medals').textContent=completed.filter(Boolean).length;
+ if(stage<2){stage++;index=0;render()}
+ else{$('badge3').classList.add('unlocked');$('medals').textContent='3';$('finalPoints').textContent=points;$('certificate').classList.add('show');$('bar').style.width='100%';$('stageLabel').textContent='اكتملت الرحلة بنجاح! 🎉';$('question').textContent='رائع! لقد أنهيت جميع التحديات.';$('answers').innerHTML='';$('feedback').className='feedback';$('next').style.display='none';document.querySelectorAll('.stage').forEach(el=>el.classList.add('done'))}
+}
+function restart(){stage=0;index=0;points=0;completed=[false,false,false];$('points').textContent='0';$('medals').textContent='0';['badge1','badge2','badge3'].forEach(id=>$(id).classList.remove('unlocked'));['stage0','stage1','stage2'].forEach(id=>$(id).classList.remove('done'));$('certificate').classList.remove('show');render()}
+render();
+</script>
+<style>@media print{body{background:white}.top,.hero,.card:not(.certificate),footer{display:none!important}.certificate{display:block!important;box-shadow:none;margin:30px;border:3px dashed #aaa}.certificate button{display:none}}</style>
+</body>
+</html>
